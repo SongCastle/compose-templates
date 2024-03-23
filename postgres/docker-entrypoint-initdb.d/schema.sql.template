@@ -1,0 +1,34 @@
+/*
+  - Postgres は CREATE DATABASE の `IF NOT EXISTS` をサポートしていない
+  - UUID ではなく ULID は重複する可能性があるかもしれない
+  - TEMPLATE 句は、データベースの元となる雛形を指定できる（postgres, template0, template1）
+  - Postgres では、エスケープは `...` ではなく "..."
+    - 文字列リテラルは '...'
+  - テーブル作成等は、暗黙的に "public".* 相当となる
+  - 'CREATE SCHEMA **IF NOT EXISTS**' は、後続のスキーマ定義と併用できない
+*/
+
+CREATE TABLE IF NOT EXISTS "serial_ids" (
+  "id" SERIAL PRIMARY KEY NOT NULL,
+  "title" VARCHAR(24) NOT NULL,
+  "created_at" TIMESTAMP NOT NULL
+);
+COMMENT ON TABLE "serial_ids" IS 'シーケンシャルな主キーを持つテーブル';
+COMMENT ON COLUMN "serial_ids"."id" IS '主キー';
+COMMENT ON COLUMN "serial_ids"."title" IS 'タイトル';
+COMMENT ON COLUMN "serial_ids"."created_at" IS '作成日時';
+
+INSERT INTO "serial_ids" ("title", "created_at") VALUES ('first-serial', NOW());
+
+CREATE TABLE IF NOT EXISTS "uuid_ids" (
+  "uuid" UUID NOT NULL DEFAULT gen_random_uuid(),
+  "title" VARCHAR(24) NOT NULL,
+  "created_at" TIMESTAMP NOT NULL,
+  PRIMARY KEY ("uuid")
+);
+COMMENT ON TABLE "uuid_ids" IS 'UUIDな主キーを持つテーブル';
+COMMENT ON COLUMN "uuid_ids"."uuid" IS '主キー';
+COMMENT ON COLUMN "uuid_ids"."title" IS 'タイトル';
+COMMENT ON COLUMN "uuid_ids"."created_at" IS '作成日時';
+
+INSERT INTO "uuid_ids" ("title", "created_at") VALUES ('first-uuid', NOW());

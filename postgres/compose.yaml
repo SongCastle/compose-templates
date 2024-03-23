@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:alpine3.19
+    container_name: psql
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+      - POSTGRES_DB=dev
+      - POSTGRES_SCHEMA=mine
+      - LANG=ja_JP.UTF-8
+    secrets:
+      - db-password
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - postgres-data:/var/lib/postgresql/data
+
+secrets:
+  db-password:
+    file: ./password.txt
+
+volumes:
+  postgres-data:
