@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS `serial_ids` (
+  `id` SERIAL PRIMARY KEY NOT NULL COMMENT '主キー',
+  `title` VARCHAR(24) NOT NULL COMMENT 'タイトル',
+  `created_at` TIMESTAMP NOT NULL COMMENT '作成日時'
+) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT 'シーケンシャルな主キーを持つテーブル';
+
+INSERT INTO `serial_ids` (`title`, `created_at`) VALUES ('first-serial', NOW());
+
+CREATE TABLE IF NOT EXISTS `uuid_ids` (
+  `uuid` BINARY(16) NOT NULL DEFAULT (UUID_TO_BIN(UUID(), 1)) COMMENT '主キー',
+  `title` VARCHAR(24) NOT NULL COMMENT 'タイトル',
+  `created_at` TIMESTAMP NOT NULL COMMENT '作成日時',
+  PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT 'UUIDな主キーを持つテーブル';
+
+INSERT INTO `uuid_ids` (`title`, `created_at`) VALUES ('first-uuid', NOW());

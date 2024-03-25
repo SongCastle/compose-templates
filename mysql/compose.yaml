@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: mysql:8.3.0
+    env_file: ./.env
+    secrets:
+      - db-password
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - mysql-data:/var/lib/mysql
+
+secrets:
+  db-password:
+    file: ./password.txt
+
+volumes:
+  mysql-data:
