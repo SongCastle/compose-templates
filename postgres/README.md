@@ -2,11 +2,7 @@
 
 Docker Compose for Postgres
 
-<br/>
-
 # Getting Started
-
-<br/>
 
 ```sh
 % cp password.txt.sample password.txt
@@ -19,8 +15,6 @@ Docker Compose for Postgres
 
 ### ユーザ一覧
 
-<br/>
-
 ```
 postgres-# \du
                              List of roles
@@ -31,7 +25,6 @@ postgres-# \du
 
 ### データベース一覧
 
-<br/>
 
 ```
 postgres-# \l
@@ -49,16 +42,12 @@ postgres-# \l
 
 ### データベース切替
 
-<br/>
-
 ```
 postgres-# \c dev
 You are now connected to database "dev" as user "root".
 ```
 
 ### テーブル一覧
-
-<br/>
 
 ```
 dev=# \d
@@ -90,8 +79,6 @@ dev=# \dt public.*; \dt mine.*;
 
 ### テーブル詳細
 
-<br/>
-
 ```
 dev=# \d serial_ids
                                         Table "public.serial_ids"
@@ -117,8 +104,6 @@ Indexes:
 ```
 
 ### スキーマ一覧
-
-<br/>
 
 ```
 dev-# \dn
