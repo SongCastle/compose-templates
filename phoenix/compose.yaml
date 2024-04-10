@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:alpine3.19
+    env_file: ./.env
+    secrets:
+      - db-password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  phoenix:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        ALPINE_VERSION: 3.19.1
+        ERLANG_VERSION: 25.1.2.1
+        ELIXIR_VERSION: 1.16.2
+    env_file: ./.env
+    secrets:
+      - db-password
+    volumes:
+      - ./app:/usr/src/app
+    ports:
+      - 4000:${PHX_PORT}
+    depends_on:
+      - postgres
+
+secrets:
+  db-password:
+    file: ./password.txt
+
+volumes:
+  postgres-data:
