@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "express template",
+  "repository": "https://github.com/SongCastle/compose-templates/tree/main/express",
+  "author": "SongCastle",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "dev:wach": "tsx watch server.ts",
+    "dev:typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  }
+}
