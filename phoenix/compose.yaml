@@ -18,10 +18,10 @@ services:
     env_file: ./.env
     secrets:
       - db-password
-    volumes:
-      - ./app:/usr/src/app
     ports:
       - 4000:${PHX_PORT}
+    volumes:
+      - ./app:/usr/src/app
     depends_on:
       - postgres
 
