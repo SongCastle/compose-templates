@@ -1,7 +1,6 @@
 services:
   postgres:
     image: postgres:alpine3.19
-    container_name: psql
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password

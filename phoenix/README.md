@@ -2,7 +2,9 @@
 
 Docker Compose for Phoenix
 
-```
+## Getting Started
+
+```sh
 $ cp password.txt.sample password.txt
 $ cp .env.sample .env
 
