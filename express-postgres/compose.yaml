@@ -1,0 +1,33 @@
+services:
+  postgres:
+    build:
+      context: ./postgres
+    env_file: ./.env
+    secrets:
+      - db_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  express:
+    build:
+      context: ./express
+      args:
+        NODE_USER: "${NODE_USER}"
+    env_file: ./.env
+    secrets:
+      - db_password
+    ports:
+      - 3000:${EXPRESS_PORT}
+    volumes:
+      - ./express/src:/usr/src/app
+      - no_modules:/usr/src/app/node_modules
+    depends_on:
+      - postgres
+
+secrets:
+  db_password:
+    file: ./password.txt
+
+volumes:
+  postgres_data:
+  no_modules:

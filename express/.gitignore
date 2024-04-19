@@ -1,5 +1,0 @@
-.env
-tmp/
-
-app/dist/
-app/node_modules/

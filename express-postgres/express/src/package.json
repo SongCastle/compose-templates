@@ -12,13 +12,16 @@
     "dev:wach": "tsx watch server.ts",
     "dev:typecheck": "tsc --noEmit",
     "dev:lint": "xo",
-    "dev:lint-fix": "xo --fix"
+    "dev:lint-fix": "xo --fix",
+    "dev:seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "5.12.1",
     "express": "^4.19.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "prisma": "^5.12.1",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5",
     "xo": "^0.58.0"
