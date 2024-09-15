@@ -1,6 +1,5 @@
-ARG NODE_USER
-
 FROM node:alpine3.19
+ARG NODE_USER
 
 RUN apk add --no-cache bash
 USER $NODE_USER
