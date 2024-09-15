@@ -1,0 +1,31 @@
+{
+  "name": "@express-workspaces/books",
+  "version": "1.0.0",
+  "description": "books service",
+  "main": "./dist/index.js",
+  "repository": "https://github.com/SongCastle/compose-templates/tree/main/express-workspaces",
+  "author": "SongCastle",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint:fix": "xo --fix"
+  },
+  "dependencies": {
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "xo": "^0.59.3"
+  }
+}

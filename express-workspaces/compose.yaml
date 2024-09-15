@@ -1,0 +1,20 @@
+services:
+  express:
+    image: node:alpine3.20
+    environment:
+      EXPRESS_SERVER_HOST: "${EXPRESS_SERVER_HOST}"
+      EXPRESS_SERVER_PORT: "${EXPRESS_SERVER_PORT}"
+    command: yarn dev
+    working_dir: /usr/src/app
+    ports:
+      - 3000:${EXPRESS_SERVER_PORT}
+    volumes:
+      - ./src:/usr/src/app
+      - app_no_modules:/usr/src/app/node_modules
+      - users_no_modules:/usr/src/app/services/users/node_modules
+      - books_no_modules:/usr/src/app/services/books/node_modules
+
+volumes:
+  app_no_modules:
+  users_no_modules:
+  books_no_modules:

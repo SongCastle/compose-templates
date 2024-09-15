@@ -1,0 +1,27 @@
+{
+  "name": "@express-workspaces/app",
+  "version": "1.0.0",
+  "description": "express with yarn workspaces",
+  "repository": "https://github.com/SongCastle/compose-templates/tree/main/express-workspaces",
+  "author": "SongCastle",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch index.ts",
+    "lint:fix": "xo --fix"
+  },
+  "workspaces": [
+    "services/*"
+  ],
+  "dependencies": {
+    "@express-workspaces/books": "1.0.0",
+    "@express-workspaces/users": "1.0.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "tsx": "^4.19.1",
+    "xo": "^0.59.3"
+  }
+}

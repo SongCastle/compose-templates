@@ -1,8 +1,8 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "express template",
-  "repository": "https://github.com/SongCastle/compose-templates/tree/main/express",
+  "description": "express & postgres template",
+  "repository": "https://github.com/SongCastle/compose-templates/tree/main/express-postgres",
   "author": "SongCastle",
   "license": "MIT",
   "private": true,
